@@ -1,7 +1,7 @@
 import { Modal, Text, Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { ProductType } from "../types";
-import UpdateAlert from "../product-detail/[sku]/UpdateAlert";
+import { ProductType } from "@/app/types";
+import UpdateAlert from "@/app/product-detail/[sku]/UpdateAlert";
 
 export default function DeleteConfirmationModal({
   open,
@@ -15,9 +15,7 @@ export default function DeleteConfirmationModal({
   >;
 }) {
   const router = useRouter();
-  console.log("product", product);
   const handleDelete = async () => {
-    console.log("handle delete");
     await fetch(`http://localhost:8080/products/${product.id}`, {
       method: "DELETE"
     })

@@ -1,0 +1,24 @@
+.actionButton{
+    margin-bottom: 0.5em;
+}
+
+.tableContainer{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.colorSelection{
+    margin: 0 0.5em 0 0;
+}
+
+.filterContainer{
+    display: flex;
+}
+
+.filters{
+    margin: 0.8em 0 0 1em;
+}
+
+.filterLabel{
+    margin: 1em 0 1em 1em
+}

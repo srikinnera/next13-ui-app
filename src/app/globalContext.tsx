@@ -13,7 +13,11 @@ const defaultValue = {
 };
 export const GlobalContext = createContext<GlobalContextPropsType>({
   product: defaultValue,
-  setProduct: () => {}
+  setProduct: () => {},
+  selectedColors: [],
+  setSelectedColors: () => {},
+  currentPage: 1,
+  setCurrentPage: () => {}
 });
 
 export const GlobalContextProvider = ({
@@ -22,8 +26,19 @@ export const GlobalContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [product, setProduct] = useState<ProductType>(defaultValue);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   return (
-    <GlobalContext.Provider value={{ product, setProduct }}>
+    <GlobalContext.Provider
+      value={{
+        product,
+        setProduct,
+        selectedColors,
+        setSelectedColors,
+        setCurrentPage,
+        currentPage
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

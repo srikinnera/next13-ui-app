@@ -4,21 +4,26 @@ import { Table, Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useGlobalContext } from "@/app/globalContext";
 import { ProductResponseType, ProductType } from "@/app/types";
+import ColorFilter from "./colorFilter";
 import DeleteConfirmationModal from "./deleteConfirmationModal";
 import styles from "./productsListTable.module.css";
 
 export default function ProductsListTable({
-  response
+  response,
+  colors
 }: {
   response: ProductResponseType;
+  colors: string[];
 }) {
   const [isDeleteConfirmationOpen, setOpenDeleteConfirmation] =
     useState<boolean>(false);
-  const { products } = response;
+  const { products, length } = response;
   const router = useRouter();
-  const { product, setProduct } = useGlobalContext();
+  const { product, setProduct, currentPage, setCurrentPage } =
+    useGlobalContext();
   return (
     <div className={styles.tableContainer}>
+      <ColorFilter colors={colors} />
       <Table
         aria-label="product-list-table"
         css={{
@@ -75,8 +80,13 @@ export default function ProductsListTable({
           shadow
           noMargin
           align="center"
+          initialPage={currentPage}
           rowsPerPage={10}
-          onPageChange={(page) => console.log({ page })}
+          total={Math.ceil(length / 10)}
+          onPageChange={(page) => {
+            setCurrentPage(page);
+            router.push(`http://localhost:3000/product-list/${page}`);
+          }}
         />
       </Table>
       <DeleteConfirmationModal

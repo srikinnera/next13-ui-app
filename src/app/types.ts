@@ -18,6 +18,10 @@ export type ProductResponseType = {
 export type GlobalContextPropsType = {
   product: ProductType;
   setProduct: React.Dispatch<React.SetStateAction<ProductType>>;
+  selectedColors: string[];
+  setSelectedColors: React.Dispatch<React.SetStateAction<string[]>>;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export type UpdateAlertPropsType = {
