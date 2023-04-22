@@ -4,27 +4,40 @@ import { useRouter } from "next/navigation";
 import styles from "./productsListTable.module.css";
 import { useGlobalContext } from "@/app/globalContext";
 
-export default function ColorFilter({ colors }: { colors: string[] }) {
+export default function ColorFilter({
+  colors,
+  productsLength
+}: {
+  colors: string[];
+  productsLength: number;
+}) {
   const router = useRouter();
   const { setSelectedColors, selectedColors, setCurrentPage, currentPage } =
     useGlobalContext();
   const [checked, setIsChecked] = useState<string[]>([]);
 
   const handleSelectionChange = (checkedColors: string[]) => {
+    setCurrentPage(1);
     setSelectedColors(checkedColors);
   };
 
   useEffect(() => {
     setIsChecked(selectedColors);
     if (selectedColors.length) {
-      setCurrentPage(1);
       router.push(
-        `http://localhost:3000/product-list/1/${selectedColors.join(",")}`
+        `http://localhost:3000/product-list/${currentPage}/${selectedColors.join(
+          ","
+        )}`
       );
-    } else {
-      router.push(`http://localhost:3000/product-list/${currentPage}`);
     }
   }, [selectedColors, router, setIsChecked, setCurrentPage]);
+
+  useEffect(() => {
+    if (productsLength === 0) {
+      setSelectedColors([]);
+      router.push(`http://localhost:3000/product-list/${currentPage}`);
+    }
+  }, [productsLength, setSelectedColors, router, currentPage]);
 
   return (
     <div className={styles.filterContainer}>

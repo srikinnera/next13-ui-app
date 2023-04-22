@@ -14,7 +14,14 @@ const schema = yup
     type: yup.string().required(),
     description: yup.string().required(),
     color: yup.string().required(),
-    price: yup.string().required()
+    price: yup
+      .number()
+      .required()
+      .test(
+        "Is positive?",
+        "Price must be greater than 0!",
+        (value) => value > 0
+      )
   })
   .required();
 
@@ -113,7 +120,8 @@ export default function ProductDetailForm() {
           Price
         </label>
         <Input
-          initialValue={`${price}`}
+          type="number"
+          initialValue={price.toString()}
           defaultValue={price}
           {...register("price")}
           className={styles.formInput}

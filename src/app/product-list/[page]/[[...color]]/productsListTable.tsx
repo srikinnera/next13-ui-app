@@ -23,7 +23,7 @@ export default function ProductsListTable({
     useGlobalContext();
   return (
     <div className={styles.tableContainer}>
-      <ColorFilter colors={colors} />
+      <ColorFilter colors={colors} productsLength={length} />
       <Table
         aria-label="product-list-table"
         css={{
@@ -84,8 +84,10 @@ export default function ProductsListTable({
           rowsPerPage={10}
           total={Math.ceil(length / 10)}
           onPageChange={(page) => {
-            setCurrentPage(page);
-            router.push(`http://localhost:3000/product-list/${page}`);
+            if (length > 0) {
+              setCurrentPage(page);
+              router.push(`http://localhost:3000/product-list/${page}`);
+            }
           }}
         />
       </Table>
