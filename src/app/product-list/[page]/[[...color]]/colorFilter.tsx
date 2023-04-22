@@ -30,7 +30,10 @@ export default function ColorFilter({
         )}`
       );
     }
-  }, [selectedColors, router, setIsChecked, setCurrentPage]);
+    if (selectedColors.length === 0) {
+      router.push(`http://localhost:3000/product-list/${currentPage}`);
+    }
+  }, [selectedColors, router, setIsChecked, currentPage]);
 
   useEffect(() => {
     if (productsLength === 0) {
@@ -50,7 +53,11 @@ export default function ColorFilter({
         value={checked}
       >
         {colors.map((color) => (
-          <Checkbox value={`${color}`} className={styles.colorSelection}>
+          <Checkbox
+            key={`${color}`}
+            value={`${color}`}
+            className={styles.colorSelection}
+          >
             {color}
           </Checkbox>
         ))}

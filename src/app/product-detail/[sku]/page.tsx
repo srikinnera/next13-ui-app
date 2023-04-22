@@ -34,6 +34,7 @@ export default function ProductDetailForm() {
   const [status, setUpdateStatus] = useState({ message: "", type: "" });
   const { product } = useGlobalContext();
   const { id, sku, name, description, type, color, price } = product;
+
   const onSubmit = (data: any) => {
     const reqObj = { ...data, sku, id, price: Number(data.price) };
     fetch(`http://localhost:8080/products/${id}`, {
@@ -117,7 +118,7 @@ export default function ProductDetailForm() {
           </p>
         )}
         <label className={styles.label} aria-label="price">
-          Price
+          Price($)
         </label>
         <Input
           type="number"
@@ -133,7 +134,7 @@ export default function ProductDetailForm() {
           </p>
         )}
         <Button type="submit" className={styles.button}>
-          UPDATE
+          Update
         </Button>
       </form>
     </>
