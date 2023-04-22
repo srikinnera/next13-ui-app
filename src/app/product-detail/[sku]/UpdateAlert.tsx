@@ -12,7 +12,7 @@ export default function UpdateAlert({ status }: UpdateAlertPropsType) {
       <Alert
         severity={status.type as AlertColor}
         onClose={() => {
-          // router.push("http://localhost:3000/product-list");
+          router.push("http://localhost:3000/product-list");
           setToastOpen(false);
         }}
       >

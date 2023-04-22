@@ -28,7 +28,6 @@ export default function ProductDetailForm() {
   const { product } = useGlobalContext();
   const { id, sku, name, description, type, color, price } = product;
   const onSubmit = (data: any) => {
-    console.log("data", data);
     const reqObj = { ...data, sku, id, price: Number(data.price) };
     fetch(`http://localhost:8080/products/${id}`, {
       method: "PUT",
@@ -57,6 +56,7 @@ export default function ProductDetailForm() {
           defaultValue={name}
           {...register("name")}
           className={styles.formInput}
+          width="540px"
         />
         {formErrors.name && (
           <p className={styles.errors}>
@@ -71,6 +71,7 @@ export default function ProductDetailForm() {
           defaultValue={type}
           {...register("type")}
           className={styles.formInput}
+          width="540px"
         />
         {formErrors.type && (
           <p className={styles.errors}>
@@ -86,6 +87,7 @@ export default function ProductDetailForm() {
           {...register("description")}
           className={styles.formInput}
           maxLength={56}
+          width="540px"
         />
         {formErrors.description && (
           <p className={styles.errors}>
@@ -100,6 +102,7 @@ export default function ProductDetailForm() {
           defaultValue={color}
           {...register("color")}
           className={styles.formInput}
+          width="540px"
         />
         {formErrors.color && (
           <p className={styles.errors}>
@@ -114,6 +117,7 @@ export default function ProductDetailForm() {
           defaultValue={price}
           {...register("price")}
           className={styles.formInput}
+          width="540px"
         />
         {formErrors.price && (
           <p className={styles.errors}>

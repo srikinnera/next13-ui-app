@@ -1,3 +1,8 @@
 .actionButton{
     margin-bottom: 0.5em;
 }
+
+.tableContainer{
+    width: 70%;
+    margin: 0 auto;
+}

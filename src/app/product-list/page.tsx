@@ -1,7 +1,9 @@
 import ProductsListTable from "./productsListTable";
 
 async function fetchProductsList() {
-  const response = await fetch("http://localhost:8080/products");
+  const response = await fetch("http://localhost:8080/products", {
+    next: { revalidate: 0 }
+  });
   const data = response.json();
   return data;
 }
