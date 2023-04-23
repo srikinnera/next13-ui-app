@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Input, Button } from "@nextui-org/react";
 import { useGlobalContext } from "@/app/globalContext";
-import UpdateAlert from "./UpdateAlert";
+import UpdateAlert from "./updateAlert";
 import styles from "./page.module.css";
 
 const schema = yup

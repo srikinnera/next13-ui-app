@@ -1,7 +1,7 @@
 import { Modal, Text, Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { ProductType } from "@/app/types";
-import UpdateAlert from "@/app/product-detail/[sku]/UpdateAlert";
+import UpdateAlert from "@/app/product-detail/[sku]/updateAlert";
 
 export default function DeleteConfirmationModal({
   open,
