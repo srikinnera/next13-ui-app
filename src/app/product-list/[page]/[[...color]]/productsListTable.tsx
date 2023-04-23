@@ -40,7 +40,10 @@ export default function ProductsListTable({
         </Table.Header>
         <Table.Body>
           {products.map((product: ProductType) => (
-            <Table.Row key={`${product.id}-${product.sku}`}>
+            <Table.Row
+              key={`${product.id}-${product.sku}`}
+              data-testId="products-table-row"
+            >
               <Table.Cell>{product.name}</Table.Cell>
               <Table.Cell>{product.color}</Table.Cell>
               <Table.Cell>{product.type}</Table.Cell>

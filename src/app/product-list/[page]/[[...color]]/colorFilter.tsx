@@ -44,7 +44,9 @@ export default function ColorFilter({
 
   return (
     <div className={styles.filterContainer}>
-      <span className={styles.filterLabel}>Filter by Color:</span>
+      <span className={styles.filterLabel} data-testId="color-filter-label">
+        Filter by Color:
+      </span>
       <Checkbox.Group
         color="secondary"
         orientation="horizontal"
