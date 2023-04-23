@@ -41,7 +41,13 @@ export default function DeleteConfirmationModal({
         </Text>
       </Modal.Header>
       <Modal.Footer>
-        <Button auto flat color="error" onPress={handleDelete}>
+        <Button
+          auto
+          flat
+          color="error"
+          onPress={handleDelete}
+          data-testid="confirm-delete-button"
+        >
           Delete
         </Button>
         <Button auto onPress={() => handleSetOpenDeleteConfirmation(false)}>

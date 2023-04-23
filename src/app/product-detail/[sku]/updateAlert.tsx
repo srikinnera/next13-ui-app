@@ -12,6 +12,7 @@ export default function UpdateAlert({ status }: UpdateAlertPropsType) {
   return (
     <Collapse in={isToastOpen}>
       <Alert
+        data-testid="update-alert"
         severity={status.type as AlertColor}
         onClose={() => {
           router.push(`http://localhost:3000/product-list/${currentPage}`);

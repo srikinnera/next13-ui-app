@@ -67,7 +67,7 @@ export default function ProductDetailForm() {
           width="540px"
         />
         {formErrors.name && (
-          <p className={styles.errors}>
+          <p className={styles.errors} data-testid="error-message">
             {formErrors.name?.message?.toString()}
           </p>
         )}
@@ -80,9 +80,10 @@ export default function ProductDetailForm() {
           {...register("type")}
           className={styles.formInput}
           width="540px"
+          maxLength={56}
         />
         {formErrors.type && (
-          <p className={styles.errors}>
+          <p className={styles.errors} data-testid="error-message">
             {formErrors.type?.message?.toString()}
           </p>
         )}
@@ -98,7 +99,7 @@ export default function ProductDetailForm() {
           width="540px"
         />
         {formErrors.description && (
-          <p className={styles.errors}>
+          <p className={styles.errors} data-testid="error-message">
             {formErrors.description?.message?.toString()}
           </p>
         )}
@@ -111,9 +112,10 @@ export default function ProductDetailForm() {
           {...register("color")}
           className={styles.formInput}
           width="540px"
+          maxLength={56}
         />
         {formErrors.color && (
-          <p className={styles.errors}>
+          <p className={styles.errors} data-testid="error-message">
             {formErrors.color?.message?.toString()}
           </p>
         )}
@@ -122,6 +124,7 @@ export default function ProductDetailForm() {
         </label>
         <Input
           type="number"
+          step="any"
           initialValue={price.toString()}
           defaultValue={price}
           {...register("price")}
@@ -129,7 +132,7 @@ export default function ProductDetailForm() {
           width="540px"
         />
         {formErrors.price && (
-          <p className={styles.errors}>
+          <p className={styles.errors} data-testid="error-message">
             {formErrors.price?.message?.toString()}
           </p>
         )}

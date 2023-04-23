@@ -61,6 +61,7 @@ export default function ProductsListTable({
                     setProduct(product);
                     router.push(`/product-detail/${product.sku}`);
                   }}
+                  data-testid="edit-button"
                 >
                   Edit
                 </Button>
@@ -72,6 +73,7 @@ export default function ProductsListTable({
                     setProduct(product);
                     setOpenDeleteConfirmation(true);
                   }}
+                  data-testid="delete-button"
                 >
                   Delete
                 </Button>
@@ -92,6 +94,7 @@ export default function ProductsListTable({
               router.push(`http://localhost:3000/product-list/${page}`);
             }
           }}
+          data-testid="pagination"
         />
       </Table>
       <DeleteConfirmationModal
