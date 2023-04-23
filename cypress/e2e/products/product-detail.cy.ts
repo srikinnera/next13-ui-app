@@ -6,6 +6,7 @@ describe("Edit Product Page", () => {
   //Test for rendering page
   it("page renders", () => {
     cy.get('[data-testid="edit-button"]').first().click();
+    cy.wait(1000);
     cy.url().should("include", "/product-detail/");
     cy.get("form").should("be.visible");
   });
