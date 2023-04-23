@@ -14,6 +14,7 @@ exports[`UpdateAlert should render the component without errors 1`] = `
       >
         <div
           class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-standardSuccess MuiAlert-standard css-wnkddu-MuiPaper-root-MuiAlert-root"
+          data-testid="update-alert"
           role="alert"
         >
           <div
